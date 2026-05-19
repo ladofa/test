@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>오늘 저녁은?</title>	
+<style>
+    /* 전체 배경을 화사하고 은은한 무지개 그라데이션으로 설정 */
+    body {
+        background: linear-gradient(120deg, #ff9a9e 0%, #fecfef 20%, #a1c4fd 40%, #c2e9fb 60%, #e0c3fc 80%, #fedd6e 100%);
+        background-size: 400% 400%;
+        animation: rainbowBackground 12s ease infinite;
+        font-family: 'Malgun Gothic', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        color: #333;
+        overflow: hidden;
+    }
+
+    /* 배경이 부드럽게 움직이는 애니메이션 */
+    @keyframes rainbowBackground {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* '오늘 저녁은?' 제목 스타일 (무지개 텍스트 + 둥둥 뜸) */
+    h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        background: linear-gradient(to right, #ff0055, #0099ff, #00ff77, #ffcc00, #ff0055);
+        background-size: 200% auto;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: rainbowText 4s linear infinite, floatEffect 3s ease-in-out infinite;
+        text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+    }
+
+    @keyframes rainbowText {
+        0% { background-position: 0% center; }
+        100% { background-position: 200% center; }
+    }
+
+    @keyframes floatEffect {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    /* 기본 본문 글 상자 스타일 */
+    p {
+        font-size: 1.2rem;
+        font-weight: bold;
+        background: rgba(255, 255, 255, 0.6); 
+        padding: 15px 25px;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); 
+        backdrop-filter: blur(4px); 
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        margin: 10px 0;
+        transition: all 0.3s ease;
+        opacity: 0; /* 처음엔 숨김 */
+        transform: translateY(20px);
+        animation: fadeInUp 0.8s ease forwards;
+    }
+
+    /* 글 상자가 순서대로 슥 올라오며 나타나는 효과 */
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* 애니메이션 등장 타이밍 조절 */
+    p:nth-of-type(1) { animation-delay: 0.5s; }
+    p:nth-of-type(2) { animation-delay: 1.5s; }
+    .highlight-menu { animation-delay: 2.8s; } /* 최종 메뉴는 가장 극적으로 등장 */
+
+    /* 마우스 올렸을 때 살짝 커지는 효과 (기본 p태그) */
+    p:not(.highlight-menu):hover {
+        transform: scale(1.05);
+        border-color: #ff9a9e;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    /* 🔥 [핵심 강조] 매콤한 닭도리탕! 전용 울트라 화려한 스타일 */
+    .highlight-menu {
+        font-size: 2.5rem; /* 크기를 훨씬 크게 변경 */
+        font-weight: 900;
+        padding: 20px 40px;
+        background: linear-gradient(45deg, #ff416c, #ff4b2b); /* 매콤한 네온 레드 그라데이션 */
+        color: white;
+        border: none;
+        box-shadow: 0 0 20px rgba(255, 75, 43, 0.6), 0 0 40px rgba(255, 65, 108, 0.4);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 1s ease forwards 2.8s, pulseGlow 1.5s infinite alternate; /* 두근거리는 광원 효과 추가 */
+    }
+
+    /* 매콤한 닭도리탕이 살짝씩 커지며 불타오르듯 빛나는 효과 */
+    @keyframes pulseGlow {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 20px rgba(255, 75, 43, 0.6);
+        }
+        100% {
+            transform: scale(1.08) rotate(1deg); /* 크기가 커지면서 살짝 회전해서 역동성 부여 */
+            box-shadow: 0 0 35px rgba(255, 75, 43, 0.9), 0 0 50px rgba(255, 65, 108, 0.6);
+        }
+    }
+
+    /* 매콤한 닭도리탕에 마우스 올렸을 때 격렬한 반응 */
+    .highlight-menu:hover {
+        background: linear-gradient(45deg, #ff1f53, #00ff77); /* 무지개빛 반전 느낌으로 초록 네온 믹스 */
+        cursor: pointer;
+        transform: scale(1.15) rotate(-1deg);
+    }
+</style>
+</head>
+
+<body>
+	<h1>오늘 저녁은?</h1>
+	<br/>
+	<p>두구두구두쾅두쾅두쿤두큰둑흔둑흔뿌궁뿌근뽀잉뽜잉뚜끈뚜끈근두운</p>
+	<p>삼계탕! 인 줄 알았으나</p>
+    <p class="highlight-menu">🌶️ 매콤한 닭도리탕! 🍗</p>
+</body>
+</html>
